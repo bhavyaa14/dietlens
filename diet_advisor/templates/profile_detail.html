@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block title %}User Profile Details{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5 p-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <div class="card shadow-lg rounded-4">
+                <div class="card-header text-center py-3 bg-success text-white rounded-top-4">
+                    <h4 class="mb-0">User Profile Details</h4>
+                </div>
+
+                <div class="card-body">
+
+                    <table class="table table-borderless mb-0">
+                        <tbody>
+
+                            <tr>
+                                <th class="text-muted">Age</th>
+                                <td class="fw-semibold">{{ profile.age }}</td>
+                            </tr>
+
+                            <tr>
+                                <th class="text-muted">Gender</th>
+                                <td class="fw-semibold">{{ profile.gender }}</td>
+                            </tr>
+
+                            <tr>
+                                <th class="text-muted">Height</th>
+                                <td class="fw-semibold">{{ profile.height }} cm</td>
+                            </tr>
+
+                            <tr>
+                                <th class="text-muted">Weight</th>
+                                <td class="fw-semibold">{{ profile.weight }} kg</td>
+                            </tr>
+
+                            <tr>
+                                <th class="text-muted">Activity Level</th>
+                                <td class="fw-semibold">{{ profile.activity_level }}</td>
+                            </tr>
+
+                            <tr>
+                                <th class="text-muted">Goal</th>
+                                <td class="fw-semibold">{{ profile.goal }}</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <div class="card-footer text-center bg-light">
+                    <a href="{% url 'update' profile.id %}" class="btn btn-success px-4 rounded-pill">
+                        Edit Profile
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

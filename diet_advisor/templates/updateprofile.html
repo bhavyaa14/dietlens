@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %} Update Profile {% endblock %}
+
+{% block content %}
+
+<div class="container mt-5 p-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <div class="card shadow-lg border-0 rounded-4">
+                <div class="card-header bg-success text-white text-center py-3 rounded-top-4">
+                    <h4 class="mb-0">Update Your Profile</h4>
+                </div>
+
+                <div class="card-body px-4 py-4">
+
+                    <form method="post">
+                        {% csrf_token %}
+
+                        <!-- Age -->
+                        <div class="mb-3">
+                            {{ form.age.label_tag }}
+                            {{ form.age }}
+                            {{ form.age.errors }}
+                        </div>
+
+                        <!-- Gender -->
+                        <div class="mb-3">
+                            {{ form.gender.label_tag }}
+                            {{ form.gender }}
+                            {{ form.gender.errors }}
+                        </div>
+
+                        <!-- Height -->
+                        <div class="mb-3">
+                            {{ form.height.label_tag }}
+                            {{ form.height }}
+                            {{ form.height.errors }}
+                        </div>
+
+                        <!-- Weight -->
+                        <div class="mb-3">
+                            {{ form.weight.label_tag }}
+                            {{ form.weight }}
+                            {{ form.weight.errors }}
+                        </div>
+
+                        <!-- Goal -->
+                        <div class="mb-4">
+                            {{ form.goal.label_tag }}
+                            {{ form.goal }}
+                            {{ form.goal.errors }}
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="d-flex justify-content-center gap-3">
+                            <button type="submit" class="btn btn-success rounded-3 px-5">
+                                Update
+                            </button>
+                            <a href="{% url 'home' %}"
+                               class="btn btn-outline-success rounded-3 px-5">
+                                Cancel
+                            </a>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

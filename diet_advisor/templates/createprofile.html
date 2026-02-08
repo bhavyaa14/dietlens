@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block title %} Create Profile {% endblock %}
+
+{% block content %}
+
+<div class="container mt-5 p-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <div class="card shadow-lg border-0 rounded-4">
+                <div class="card-header bg-success text-white text-center py-3">
+                    <h4>Create Your Profile</h4>
+                </div>
+
+                <div class="card-body">
+
+                    <form method="post">
+                        {% csrf_token %}
+
+                        <!-- Age -->
+                        <div class="mb-3">
+                            {{ form.age.label_tag }}
+                            {{ form.age }}
+                            {{ form.age.errors }}
+                        </div>
+
+                        <!-- Gender -->
+                        <div class="mb-3">
+                            {{ form.gender.label_tag }}
+                            {{ form.gender }}
+                            {{ form.gender.errors }}
+                        </div>
+
+                        <!-- Height -->
+                        <div class="mb-3">
+                            {{ form.height.label_tag }}
+                            {{ form.height }}
+                            {{ form.height.errors }}
+                        </div>
+
+                        <!-- Weight -->
+                        <div class="mb-3">
+                            {{ form.weight.label_tag }}
+                            {{ form.weight }}
+                            {{ form.weight.errors }}
+                        </div>
+
+                        <!-- Goal -->
+                        <div class="mb-3">
+                            {{ form.goal.label_tag }}
+                            {{ form.goal }}
+                            {{ form.goal.errors }}
+                        </div>
+
+                        <!-- Submit -->
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success btn-md rounded-pill">
+                                Create
+                            </button>
+                            <a href="{% url 'home' %}" class="btn btn-outline-success btn-md rounded-pill ms-2">
+                                Cancel
+                            </a>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

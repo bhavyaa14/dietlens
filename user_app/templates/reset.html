@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}Reset Password | DietLens{% endblock %}
+
+{% block content %}
+<div class="container mt-5 p-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <div class="card shadow-lg border-0 rounded-4">
+
+                <!-- Header -->
+                <div class="card-header bg-success text-white text-center py-3">
+                    <h4>Reset Password</h4>
+                </div>
+
+                <!-- Body -->
+                <div class="card-body p-4">
+
+                    <form action="" method="post">
+                        {% csrf_token %}
+
+                        <!-- New Password -->
+                        <div class="mb-3">
+                            <label for="new_password" class="form-label">New Password</label>
+                            <input type="password" name="new_password" id="new_password"
+                                   class="form-control rounded-pill"
+                                   placeholder="Enter new password" required>
+                        </div>
+
+                        <!-- Confirm Password -->
+                        <div class="mb-3">
+                            <label for="confirm_password" class="form-label">Confirm Password</label>
+                            <input type="password" name="confirm_password" id="confirm_password"
+                                   class="form-control rounded-pill"
+                                   placeholder="Confirm new password" required>
+                        </div>
+
+                        <!-- Buttons on Same Line -->
+                        <div class="d-flex justify-content-center gap-3 mt-3">
+                            <button type="submit" 
+                                    class="btn btn-outline-success  py-2 rounded-pill fw-semibold">
+                                Reset Password
+                            </button>
+                            <a href="{% url 'home' %}" 
+                               class="btn btn-outline-success px-4 py-2 rounded-pill">
+                                Cancel
+                            </a>
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

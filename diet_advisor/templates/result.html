@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}Result{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5 p-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <div class="card shadow-lg border-0 rounded-4">
+                <div class="card-header bg-success text-white text-center py-3">
+                    <h4>Your Health Summary</h4>
+                </div>
+
+                <div class="card-body">
+
+                    <div class="mb-4 text-center">
+                        <h5 class="text-secondary">BMI</h5>
+                        <p class="fs-4 fw-bold">{{ profile.bmi}}</p>
+                    </div>
+
+                    <hr>
+
+                    <div class="mb-4 text-center">
+                        <h5 class="text-secondary">BMR</h5>
+                        <p class="fs-4 fw-bold">{{ profile.bmr }} kcal/day</p>
+                    </div>
+
+                    <hr>
+
+                    <div class="mb-4 text-center">
+                        <h5 class="text-secondary">Calories Required</h5>
+                        <p class="fs-4 fw-bold">{{ profile.calories_needed}} kcal/day</p>
+                    </div>
+
+                    <div class="text-center">
+                        <a href="{% url 'detail_profile' %}" class="btn btn-outline-success btn-md rounded-pill">
+                            Go Back
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

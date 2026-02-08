@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %} User Profile Details {% endblock %}
+
+{% block content %}
+
+<div class="container mt-5 p-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <div class="card shadow-lg border-0 rounded-4">
+                <div class="card-header bg-success text-white text-center py-3 rounded-top-4">
+                    <h4 class="mb-0">Upgrade to Premium ₹{{ amount }}</h4>
+                </div>
+
+                <div class="card-body px-4 py-4 text-center">
+
+                    <!-- Razorpay form -->
+                    <form action="{% url 'success' %}" method="POST">
+                        {% csrf_token %}
+
+                        <script src="https://checkout.razorpay.com/v1/checkout.js"
+                                data-key="{{ key_id }}"
+                                data-amount="{{ order.amount }}"
+                                data-currency="INR"
+                                data-order_id="{{ order.order_id }}"
+                                data-buttontext="Pay Now"
+                                data-name="Diet Advisor Premium"
+                                data-description="Unlock Premium Features"
+                                data-theme.color="#198754">
+                        </script>
+
+                        <input type="hidden" value="{{ order.id }}" name="razorpay_order_id">
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<style>
+.razorpay-payment-button {
+    background-color: transparent; /* normal button background */
+    color: #198754;                /* green text */
+    border: 2px solid #198754;     /* green border */
+    border-radius: 0.5rem;         /* rounded corners */
+    transition: 0.3s;              /* smooth hover */
+}
+.razorpay-payment-button:hover {
+    background-color: #198754;     /* green background on hover */
+    color: #ffffff;                /* white text on hover */
+}
+</style>
+{% endblock %}
+
