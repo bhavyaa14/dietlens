@@ -31,7 +31,8 @@ RAZOR_KEY_SECRET = os.getenv('RAZOR_KEY_SECRET')
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-zenx=m4600_3&qp%c9b4++up-_h&v9ecqhw&$og)-@68l78b76'
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -83,8 +84,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = "bhavyaprabhath14@gmail.com"#sender's email-id 
-EMAIL_HOST_PASSWORD ="eaxh giha gufl yeny" #password associated with above email-id (not the regular password)
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")#sender's email-id 
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD") #password associated with above email-id (not the regular password)
 
 AUTH_USER_MODEL = "user_app.CustomUser"
 
